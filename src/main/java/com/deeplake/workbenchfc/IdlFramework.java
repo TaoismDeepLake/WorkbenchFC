@@ -27,9 +27,9 @@ import static com.deeplake.workbenchfc.init.RegistryHandler.initRegistries;
 
 @Mod(modid = IdlFramework.MODID, name = IdlFramework.NAME, version = IdlFramework.VERSION)//dependencies = "required-after:Forge@[14.23.5.2705,)"
 public class IdlFramework {
-    public static final String MODID = "untitled";
-    public static final String NAME = "IdlFramework";
-    public static final String VERSION = "0.1.101";
+    public static final String MODID = "workbenchfc";
+    public static final String NAME = "Workbench, Furnace & Chests";
+    public static final String VERSION = "0.1.001";
 
     public static Logger logger;
 
@@ -44,18 +44,6 @@ public class IdlFramework {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
-
-        if (MODID.equals("untitled"))
-        {
-            logger.error("Please change your mod id in the main class.");
-            logger.error("请在IdlFramework中修改你的MODID");
-        }
-
-        if (Reference.CLIENT_PROXY_CLASS.indexOf("deeplake.workbenchfc.proxy.ClientProxy") > 0)
-        {
-            logger.warn("Have you changed your package name to author and modname?");
-            logger.warn("你是否忘记修改目录为作者名和mod名？");
-        }
 
         RegistryHandler.preInitRegistries(event);
 
@@ -85,15 +73,8 @@ public class IdlFramework {
             ModSpawn.registerSpawnList();
         }
 
-        MetaUtil.isIRRLoaded = Loader.isModLoaded("itemrender");
-        MetaUtil.isLoaded_TiC = Loader.isModLoaded("tconstruct");
-        MetaUtil.isLoaded_Slashblade = Loader.isModLoaded("flammpfeil.slashblade");
-        MetaUtil.isLoaded_Botania = Loader.isModLoaded("botania");
-        MetaUtil.isLoaded_DWeapon = Loader.isModLoaded("dweapon");
-        MetaUtil.isLoaded_AOA3 = Loader.isModLoaded(CommonDef.MOD_NAME_AOA3);
-        MetaUtil.isLoaded_GC = Loader.isModLoaded("galacticraftcore");
-        MetaUtil.isLoaded_Taoism = Loader.isModLoaded("taoism");
-        MetaUtil.isLoaded_GOG = Loader.isModLoaded(CommonDef.MOD_NAME_GOG);
+        MetaUtil.isIdeallandLoaded = Loader.isModLoaded("idealland");
+
 
         TrashTalking();
 
@@ -107,11 +88,11 @@ public class IdlFramework {
 
 
     private void TrashTalking() {
-//        if (MetaUtil.isIRRLoaded) {
-//            IdlFramework.Log("Item Renderer? Consider contributing to MCMod-dot-cn.");
-//        } else {
-//            //IdlFramework.Log("No Item Renderer found.");
-//        }
+        if (MetaUtil.isIdeallandLoaded) {
+            IdlFramework.Log("Bow to idealland.");
+        } else {
+            //IdlFramework.Log("No Item Renderer found.");
+        }
     }
 
     private static void RegisterTileEntity() {

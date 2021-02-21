@@ -1,11 +1,11 @@
 [
 {
-  "modid": "untitled",
-  "name": "Idealland Framework",
-  "description": "A modding framework presented by Idealland.",
+  "modid": "workbenchfc",
+  "name": "Workbench, Furnace & Chests",
+  "description": "A story of workbench ,furnace and chest blocks.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "https://www.mcmod.cn/class/2421.html",
+  "url": "https://github.com/TaoismDeepLake/WorkbenchFC/",
   "updateUrl": "",
   "authorList": ["Taoism DeepLake"],
   "credits": "Idealland - they provided this framework.",
