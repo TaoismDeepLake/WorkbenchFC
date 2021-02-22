@@ -1,5 +1,6 @@
 package com.deeplake.workbenchfc;
 
+import com.deeplake.workbenchfc.design.ElemAttrManager;
 import com.deeplake.workbenchfc.gui.ModGuiElementLoader;
 import com.deeplake.workbenchfc.init.ModConfig;
 import com.deeplake.workbenchfc.init.ModRecipes;
@@ -62,7 +63,7 @@ public class IdlFramework {
         NetworkHandler.init();
 
 		LogWarning("%s has finished its initializations", MODID);
-
+        ElemAttrManager.initFactor();
 	}
 
     @EventHandler

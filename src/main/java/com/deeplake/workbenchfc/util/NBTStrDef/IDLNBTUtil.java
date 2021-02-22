@@ -2,6 +2,9 @@ package com.deeplake.workbenchfc.util.NBTStrDef;
 
 import javax.annotation.Nullable;
 
+import com.deeplake.workbenchfc.IdlFramework;
+import com.deeplake.workbenchfc.util.CommonDef;
+import com.deeplake.workbenchfc.util.IDLNBT;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -225,7 +228,36 @@ public class IDLNBTUtil {
 		return GetIntAuto(entity, STRONG_TAG, 0);
 	}
 
+	public static int GetElemAuto(Entity entity, int type)
+	{
+		if (type < 0 || type >= CommonDef.N_COUNT)
+		{
+			IdlFramework.Log("Tried to get invalid type %d", type);
+			return 0;
+		}
 
+		if (entity instanceof EntityPlayer)
+		{
+			return IDLNBT.getPlayerIdeallandIntSafe((EntityPlayer) entity, ELEMENT_TAG[type]);
+		}
+
+		return 0;
+	}
+
+	public static void SetElemAuto(Entity entity, int type, int value)
+	{
+		if (type < 0 || type >= CommonDef.N_COUNT)
+		{
+			IdlFramework.Log("Tried to set invalid type %d", type);
+			return;
+		}
+
+		if (entity instanceof EntityPlayer)
+		{
+			IDLNBT.setPlayerIdeallandTagSafe((EntityPlayer) entity, ELEMENT_TAG[type], value);
+		}
+
+	}
 
 	public static int GetIntAuto(Entity entity, String key, int defaultVal)
 	{

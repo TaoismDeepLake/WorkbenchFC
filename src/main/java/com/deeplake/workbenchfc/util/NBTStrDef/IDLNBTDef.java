@@ -13,6 +13,12 @@ public class IDLNBTDef {
 	public static final String STRONG_TAG = "good_at";
 	public static final String WEAK_TAG = "weak_at";
 
+	public static final String[] ELEMENT_TAG = new String[]{
+		"wfc_workbench",
+		"wfc_furnace",
+		"wfc_chest"
+	};
+
 	//UNO
 	public static final String CARD_SUIT = "card_suit";
 
