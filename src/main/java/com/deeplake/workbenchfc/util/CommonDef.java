@@ -23,6 +23,7 @@ public class CommonDef {
 
     public static final float DEG_TO_RAD = 0.017453292F;
     public static final int CHUNK_SIZE = 16;
+    public static final int MAX_LEVEL = 10;
 
     public static int GUA_TYPES = 8;
 

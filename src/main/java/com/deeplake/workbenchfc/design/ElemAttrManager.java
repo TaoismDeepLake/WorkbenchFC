@@ -1,6 +1,7 @@
 package com.deeplake.workbenchfc.design;
 
 import com.deeplake.workbenchfc.IdlFramework;
+import com.deeplake.workbenchfc.util.CommonDef;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
@@ -16,17 +17,16 @@ public class ElemAttrManager {
 
     static float[] attrFactor;
     static float[] attrFactorDelta;
-    public static final int MAX_LEVEL = 10;
 
     public static int getArrayIndex(int level)
     {
-        if (level < -MAX_LEVEL || level > MAX_LEVEL)
+        if (level < -CommonDef.MAX_LEVEL || level > CommonDef.MAX_LEVEL)
         {
             IdlFramework.LogWarning("invalid level %d", level);
             return 0;
         }
 
-        return level + MAX_LEVEL;
+        return level + CommonDef.MAX_LEVEL;
     }
 
     public static float getModifier(int level)
@@ -41,9 +41,9 @@ public class ElemAttrManager {
 
     public static void initFactor()
     {
-        attrFactor = new float[MAX_LEVEL*2+1];
-        attrFactorDelta = new float[MAX_LEVEL*2+1];
-        for (int i = -MAX_LEVEL; i <= MAX_LEVEL; i++)
+        attrFactor = new float[CommonDef.MAX_LEVEL*2+1];
+        attrFactorDelta = new float[CommonDef.MAX_LEVEL*2+1];
+        for (int i = -CommonDef.MAX_LEVEL; i <= CommonDef.MAX_LEVEL; i++)
         {
             attrFactorDelta[getArrayIndex(i)] = i > 0 ? 1f : -1f;//standard
         }
@@ -60,12 +60,12 @@ public class ElemAttrManager {
         attrFactorDelta[0] = 0;
 
         //level 10 increase attr even more
-        attrFactorDelta[getArrayIndex(MAX_LEVEL)] = 3f;
-        attrFactorDelta[-getArrayIndex(MAX_LEVEL)] = -3f;
+        attrFactorDelta[getArrayIndex(CommonDef.MAX_LEVEL)] = 3f;
+        attrFactorDelta[-getArrayIndex(CommonDef.MAX_LEVEL)] = -3f;
 
         attrFactor[0] = 0f;
 
-        for (int i = 1; i <= MAX_LEVEL; i++)
+        for (int i = 1; i <= CommonDef.MAX_LEVEL; i++)
         {
             int index = getArrayIndex(i);
             //positive
@@ -76,7 +76,7 @@ public class ElemAttrManager {
         }
 
         String s = "";
-        for (int i = -MAX_LEVEL; i <= MAX_LEVEL; i++)
+        for (int i = -CommonDef.MAX_LEVEL; i <= CommonDef.MAX_LEVEL; i++)
         {
             s = s + String.format("Lv%d:%f\n", i, attrFactor[getArrayIndex(i)]);
         }
