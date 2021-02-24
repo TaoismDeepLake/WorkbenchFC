@@ -13,8 +13,9 @@ idealland.conf.general.welcome=Welcome Message Key
 enchantment.idealland.test_enchantment=Early Access
 
 #Messages
-idealland.moroon_incoming_herald=[IDL][Warn] The Moroon are interested in your fights.
-idealland.msg.notice_meter_report=[IDL] Moroon notice value: %d, invasion: %d/%d, error:%d
+workbenchfc.msg.type_id_invalid=Wrong argument 1: type must be 0~2
+workbenchfc.msg.type_value_invalid=Wrong argument 2: value must be -10~10
+workbenchfc.msg.cmd_update_value=Set value: type %s to %s
 
 #Potions
 idealland.potion.deadly=Deadly

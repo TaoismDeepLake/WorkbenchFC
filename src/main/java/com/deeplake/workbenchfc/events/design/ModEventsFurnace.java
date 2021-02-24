@@ -1,12 +1,14 @@
 package com.deeplake.workbenchfc.events.design;
 
+import com.deeplake.workbenchfc.IdlFramework;
 import com.deeplake.workbenchfc.design.ElemAttrManager;
 import com.deeplake.workbenchfc.item.ModItems;
-import com.deeplake.workbenchfc.util.CommonDef;
-import com.deeplake.workbenchfc.util.EntityUtil;
+import com.deeplake.workbenchfc.util.*;
 import com.deeplake.workbenchfc.util.NBTStrDef.IDLNBTUtil;
-import com.deeplake.workbenchfc.util.Reference;
-import jdk.nashorn.internal.ir.Block;
+import jdk.nashorn.internal.ir.IdentNode;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockChest;
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,20 +21,33 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.ILockableContainer;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.ILootContainer;
+import net.minecraft.world.storage.loot.functions.Smelt;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 import static com.deeplake.workbenchfc.util.CommonDef.N_FURNACE;
 import static com.deeplake.workbenchfc.util.CommonDef.N_WORKBENCH;
+import static com.deeplake.workbenchfc.util.MessageDef.CHEST_NEED_HEALTH;
 
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class ModEventsFurnace {
 
     public static final Item TORCH = Item.getItemFromBlock(Blocks.TORCH);
+
+    @SubscribeEvent
+    public static void onSmelt(PlayerEvent.ItemSmeltedEvent event)
+    {
+        IdlFramework.Log("Smelted event");
+    }
 
 	@SubscribeEvent
 	public static void onCreatureHurt(LivingHurtEvent evt) {
@@ -98,16 +113,44 @@ public class ModEventsFurnace {
 //		}
 	}
 
-    @SubscribeEvent
-    public static void onLivingUpdateEvent(LivingEvent.LivingUpdateEvent event)
-    {
-        EntityLivingBase livingBase = event.getEntityLiving();
+//    @SubscribeEvent
+//    public static void onLivingUpdateEvent(LivingEvent.LivingUpdateEvent event)
+//    {
+//        EntityLivingBase livingBase = event.getEntityLiving();
+//
+//        if (livingBase instanceof EntityPlayer)
+//        {
+//            if (IDLNBTUtil.GetWeakAuto(livingBase) == N_FURNACE)
+//            {
+//                EntityUtil.TryRemoveGivenBuff(livingBase, MobEffects.FIRE_RESISTANCE);
+//            }
+//        }
+//    }
 
-        if (livingBase instanceof EntityPlayer)
+    @SubscribeEvent
+    public static void onPlayerInteractBlock(PlayerInteractEvent.RightClickBlock event)
+    {
+        World world = event.getWorld();
+        if (world.isRemote)
         {
-            if (IDLNBTUtil.GetWeakAuto(livingBase) == N_FURNACE)
+            return;
+        }
+
+        EntityPlayer player = event.getEntityPlayer();
+        BlockPos pos = event.getPos();
+        Block block = world.getBlockState(pos).getBlock();
+        if (block instanceof BlockFurnace)
+        {
+            int level = IDLNBTUtil.GetElemAuto(player, N_FURNACE);
+            if (level < 0)
             {
-                EntityUtil.TryRemoveGivenBuff(livingBase, MobEffects.FIRE_RESISTANCE);
+                if (player.getRNG().nextFloat() < -0.1f * level)
+                {
+                    player.setFire(3);
+                }
+            }
+            else {
+
             }
         }
     }

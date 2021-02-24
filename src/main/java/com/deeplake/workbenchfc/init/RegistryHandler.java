@@ -1,6 +1,7 @@
 package com.deeplake.workbenchfc.init;
 
 import com.deeplake.workbenchfc.command.CommandDimTeleport;
+import com.deeplake.workbenchfc.command.CommandSetValue;
 import com.deeplake.workbenchfc.enchantments.ModEnchantmentInit;
 import com.deeplake.workbenchfc.entity.RenderHandler;
 import com.deeplake.workbenchfc.blocks.ModBlocks;
@@ -92,6 +93,7 @@ public class RegistryHandler {
 
 	public static void serverRegistries(FMLServerStartingEvent event)
     {
+        event.registerServerCommand(new CommandSetValue());
         //event.registerServerCommand(new CommandDimTeleport());
     }
 }

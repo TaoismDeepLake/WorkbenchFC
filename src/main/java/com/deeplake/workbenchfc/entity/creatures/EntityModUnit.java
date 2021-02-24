@@ -1,6 +1,5 @@
 package com.deeplake.workbenchfc.entity.creatures;
 
-import com.deeplake.workbenchfc.blocks.blockMoroon.BlockMoroonBase;
 import com.deeplake.workbenchfc.util.EntityUtil;
 import com.deeplake.workbenchfc.util.NBTStrDef.IDLNBTDef;
 import com.google.common.base.Predicate;
@@ -354,7 +353,7 @@ public class EntityModUnit extends EntityCreature {
         return iblockstate.canEntitySpawn(this)
                 && this.getBlockPathWeight(new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ)) >= 0.0F
                 && (spawn_without_darkness || isValidLightLevel())
-                && (spawn_without_moroon_ground || iblockstate.getBlock() instanceof BlockMoroonBase);
+                ;
     }
 
     /**

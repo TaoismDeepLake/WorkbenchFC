@@ -33,8 +33,6 @@ public class EntityIdlBuildingBase extends EntityModUnit {
     @Nullable
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
-
-
         return super.onInitialSpawn(difficulty, livingdata);
     }
 

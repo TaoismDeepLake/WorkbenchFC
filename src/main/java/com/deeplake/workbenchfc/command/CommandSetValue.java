@@ -1,11 +1,11 @@
 package com.deeplake.workbenchfc.command;
 
 import com.deeplake.workbenchfc.IdlFramework;
+import com.deeplake.workbenchfc.design.ElemAttrManager;
 import com.deeplake.workbenchfc.util.CommonDef;
 import com.deeplake.workbenchfc.util.CommonFunctions;
 import com.deeplake.workbenchfc.util.NBTStrDef.IDLNBTDef;
 import com.deeplake.workbenchfc.util.NBTStrDef.IDLNBTUtil;
-import com.deeplake.workbenchfc.util.Teleport;
 import com.google.common.collect.Lists;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -20,9 +20,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.util.List;
 
 
-public class CommandSetStrong extends CommandBase {
+public class CommandSetValue extends CommandBase {
 
-    private final List<String> aliases = Lists.newArrayList(IdlFramework.MODID, "wfcs", "wfcstrong");
+    private final List<String> aliases = Lists.newArrayList(IdlFramework.MODID, "wfc", "wfcval");
 
     @SubscribeEvent
     public int getRequiredPermissionLevel()
@@ -37,7 +37,7 @@ public class CommandSetStrong extends CommandBase {
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "wfcstrong <id 0 ~2>";
+        return "wfcstrong <id 0 ~2> <value -10 ~ + 10>";
     }
 
     @Override
@@ -53,7 +53,7 @@ public class CommandSetStrong extends CommandBase {
 
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-        if (args.length < 1) {
+        if (args.length <= 1) {
             return;
         }
 
@@ -64,7 +64,35 @@ public class CommandSetStrong extends CommandBase {
             typeID = Integer.parseInt(s);
             if (typeID < 0 || typeID >= CommonDef.N_COUNT)
             {
-                throw  new NumberFormatException("type must be 0~2");
+                throw new NumberFormatException("type must be 0~2");
+            }
+            else {
+                s = args[1];
+                int value;
+
+                try{
+                    value = Integer.parseInt(s);
+                    if (value < -CommonDef.MAX_LEVEL || value > CommonDef.MAX_LEVEL)
+                    {
+                        throw new NumberFormatException("value must be -10~10");
+                    }
+                    else {
+                        if (sender instanceof EntityPlayer)
+                        {
+                            //execute
+                            IDLNBTUtil.SetElemAuto((Entity) sender, typeID, value);
+                            CommonFunctions.SafeSendMsgToPlayer(TextFormatting.BOLD, (EntityPlayer) sender, "workbenchfc.msg.cmd_update_value", typeID, value);
+                            ElemAttrManager.logValue((EntityPlayer) sender);
+                        }
+                    }
+                }catch (NumberFormatException e)
+                {
+                    if (sender instanceof EntityPlayerMP)
+                    {
+                        CommonFunctions.SendMsgToPlayerStyled((EntityPlayerMP) sender, "workbenchfc.msg.type_value_invalid", TextFormatting.RED, s);
+                    }
+                    return;
+                }
             }
         }catch (NumberFormatException e)
         {

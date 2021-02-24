@@ -14,6 +14,7 @@ import net.minecraft.util.math.BlockPos;
 
 import java.util.*;
 
+import static com.deeplake.workbenchfc.design.ElemAttrManager.updatePlayerGivenTypeAttr;
 import static com.deeplake.workbenchfc.util.IDLNBT.*;
 import static com.deeplake.workbenchfc.util.NBTStrDef.IDLNBTDef.*;
 
@@ -255,6 +256,7 @@ public class IDLNBTUtil {
 		if (entity instanceof EntityPlayer)
 		{
 			IDLNBT.setPlayerIdeallandTagSafe((EntityPlayer) entity, ELEMENT_TAG[type], value);
+			updatePlayerGivenTypeAttr(entity, type);
 		}
 
 	}
