@@ -1,5 +1,7 @@
 package com.deeplake.workbenchfc.item;
 
+import com.deeplake.workbenchfc.item.food.ItemFoodCoal;
+import com.deeplake.workbenchfc.item.food.ItemFoodExp;
 import net.minecraft.item.Item;
 
 import java.util.ArrayList;
@@ -11,6 +13,14 @@ public class ModItems {
 
 	//Basic
 	//public static final Item PAPER_BLOOD = new ItemBase("paper_blood");
+	public static final Item EDIBLE_COAL = new ItemFoodCoal("edible_coal", 7, 7, false);
+	public static final Item[] XP_CARD =
+			{
+					new ItemFoodExp("xp_card_0", 0, 100),
+					new ItemFoodExp("xp_card_1", 1, 100),
+					new ItemFoodExp("xp_card_2", 2, 100),
+			};
+
 
 
 	/*

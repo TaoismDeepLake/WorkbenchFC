@@ -59,8 +59,9 @@ local function GenItem(_typeName, _itemName)
 	outFile:close();
 end
 
- GenItem("misc", "idl_ai_terminal");
-
+--for i = 0,5 do
+-- GenItem("food", "xp_card_"..i);
+--end
 
 --GenBlock("idl_glass");
 

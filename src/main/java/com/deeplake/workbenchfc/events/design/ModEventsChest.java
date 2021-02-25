@@ -70,6 +70,7 @@ public class ModEventsChest {
                     {
                         CommonFunctions.SafeSendMsgToPlayer(TextFormatting.GREEN, player, MessageDef.OPENED_A_CHEST);
                         player.heal(level);
+                        IDLNBTUtil.AddXPAuto(player, N_CHEST, 20);
                     }
                 }
             }

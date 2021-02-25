@@ -46,7 +46,14 @@ public class ModEventsFurnace {
     @SubscribeEvent
     public static void onSmelt(PlayerEvent.ItemSmeltedEvent event)
     {
-        IdlFramework.Log("Smelted event");
+        //IdlFramework.Log("Smelted event");
+        EntityPlayer player = event.player;
+        if (player.world.isRemote)
+        {
+            return;
+        }
+
+        IDLNBTUtil.AddXPAuto(event.player, N_FURNACE, 1);
     }
 
 	@SubscribeEvent

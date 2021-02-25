@@ -1,5 +1,6 @@
 package com.deeplake.workbenchfc.events.design;
 
+import com.deeplake.workbenchfc.design.ElemAttrManager;
 import com.deeplake.workbenchfc.util.CommonDef;
 import com.deeplake.workbenchfc.util.EntityUtil;
 import com.deeplake.workbenchfc.util.NBTStrDef.IDLNBTUtil;
@@ -126,6 +127,11 @@ public class ModEventsWorkbench {
 		}
 
 		int levelWB = IDLNBTUtil.GetElemAuto(player, N_WORKBENCH);
+
+		if (checkCanHaveMoreResult(event))
+		{
+			IDLNBTUtil.AddXPAuto(event.player, N_WORKBENCH, 1);
+		}
 
 		if (levelWB > 0)
 		{

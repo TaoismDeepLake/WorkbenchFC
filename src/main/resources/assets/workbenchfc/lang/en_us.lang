@@ -1,75 +1,89 @@
 #PARSE_ESCAPES
 #tabs
-itemGroup.ideallandMiscTab=IDL Hall
+itemGroup.wfcMiscTab=WFC
 
-generator.TYPE_ONE=Type One;
-generator.TYPE_TWO=Type Two;
+#generator.TYPE_ONE=Type One;
+#generator.TYPE_TWO=Type Two;
 
 #config
-configgui.idealland.category.Menu0.GeneralConf=General Config
-idealland.conf.general.welcome=Welcome Message Key
+#configgui.idealland.category.Menu0.GeneralConf=General Config
+#idealland.conf.general.welcome=Welcome Message Key
 
 #Enchantments
-enchantment.idealland.test_enchantment=Early Access
+#enchantment.idealland.test_enchantment=Early Access
 
 #Messages
 workbenchfc.msg.type_id_invalid=Wrong argument 1: type must be 0~2
 workbenchfc.msg.type_value_invalid=Wrong argument 2: value must be -10~10
 workbenchfc.msg.cmd_update_value=Set value: type %s to %s
+workbenchfc.msg.opened_chest=My life for tha'loot.
+workbenchfc.msg.level_up.0=Workbench Level Up! Lv.%s
+workbenchfc.msg.level_up.1=Furnace Level Up! Lv.%s
+workbenchfc.msg.level_up.2=Chest Level Up! Lv.%s
 
+workbenchfc.msg.exp.0=Workbench Exp: Lv.%s (%s/%s)
+workbenchfc.msg.exp.1=Furnace Exp: Lv.%s (%s/%s)
+workbenchfc.msg.exp.2=Chest Exp: Lv.%s (%s/%s)
 #Potions
-idealland.potion.deadly=Deadly
-idealland.potion.zen_heart=Countless Virtue
-
+#workbenchfc.potion.deadly=Deadly
 
 #Entities
-entity.moroon_tainter.name=Moroon Pathfinder
+#entity.moroon_tainter.name=Moroon Pathfinder
 
 #Blocks
-tile.idealland_light_basic.name=Idealland Lamp
+#tile.idealland_light_basic.name=Idealland Lamp
 
-tile.test.name=Idealland Block A
+#tile.test.name=Idealland Block A
 
 #Items
-idealland.food.shared.xp_desc=Grants XP: %d
-idealland.gua_enhance_no_free.desc=Use anvil to socket Gua(Elemental)
-idealland.gua_enhance_free.desc=Free Gua Sockets(Direct craft): %d
+#idealland.food.shared.xp_desc=Grants XP: %d
+#idealland.gua_enhance_no_free.desc=Use anvil to socket Gua(Elemental)
+#idealland.gua_enhance_free.desc=Free Gua Sockets(Direct craft): %d
+#
+#idealland.gua_enhance_total.desc=Gua Enhance Total: %d
+#idealland.shared.press_shift=Hold SHIFT to examine info.
+#
+#fading.duration.desc=Vanishes after %d seconds
+#
+item.edible_coal.name=Edible Coal
+item.edible_coal.desc=Fuel or food
 
-idealland.gua_enhance_total.desc=Gua Enhance Total: %d
-idealland.shared.press_shift=Hold SHIFT to examine info.
+item.xp_card_0.name=Edible Workbench XP
+item.xp_card_0.desc=Increases your skill XP
 
-fading.duration.desc=Vanishes after %d seconds
+item.xp_card_1.name=Edible Furnace XP
+item.xp_card_1.desc=Increases your skill XP
 
-item.debug_test.name=Debug Item
-item.debug_test.desc=For debuging. Not for playing.
-
-item.xie_geta.name=Geta of Mr.Xie
-item.xie_geta.desc.0=Uphill mode. Grants Lv.%s Jump Boost.
-item.xie_geta.desc.1=Flat ground mode. Grants Lv.%s Speed.
-item.xie_geta.desc.2=Down hill mode. Reduces %s fall damage.
-
-item.p2w_goblet.name=P.2.W. Chalice
-item.p2w_goblet.desc=Pay gold to increase your power. (Try crafting it with the 8 elements and gold)
-item.p2w_goblet.contain.desc=Containing %d exp.
-item.p2w_goblet.player.desc=Owner power: Lv.%d (%d/%d exp)
+item.xp_card_2.name=Edible Chest XP
+item.xp_card_2.desc=Increases your skill XP
+#
+#item.xie_geta.name=Geta of Mr.Xie
+#item.xie_geta.desc.0=Uphill mode. Grants Lv.%s Jump Boost.
+#item.xie_geta.desc.1=Flat ground mode. Grants Lv.%s Speed.
+#item.xie_geta.desc.2=Down hill mode. Reduces %s fall damage.
+#
+#item.p2w_goblet.name=P.2.W. Chalice
+#item.p2w_goblet.desc=Pay gold to increase your power. (Try crafting it with the 8 elements and gold)
+#item.p2w_goblet.contain.desc=Containing %d exp.
+#item.p2w_goblet.player.desc=Owner power: Lv.%d (%d/%d exp)
 
 #Skills
-idealland.skill.shared.cool_down_desc=Cooldown: %.1fs
-idealland.skill.shared.power_desc=Damage: %.1f
-idealland.skill.shared.range_desc=Radius: %.1f block
-idealland.skill.shared.duration_desc=Duration: %.1fs
-idealland.skill.shared.error_desc=Error: +-%d
-idealland.skill.shared.level_desc=Level: %d/%d
-idealland.skill.shared.name_format=%s
-idealland.skill.shared.name_format_with_lv=%s Lv.%s %s
-idealland.skill.shared.lv_max=[MAX]
-
-idealland.gua_enhance_list.desc=Earth %s Thunder %s\nWater %s Mountain %s\nLake %s Fire %s\nWind%s Sky%s
-idealland.gua_not_applicable.desc=-
-
-idealland.kill_count.desc=Kills: %d
-
-idealland.skill.msg.cool_down=Cooling Down.
+#idealland.skill.shared.cool_down_desc=Cooldown: %.1fs
+#idealland.skill.shared.power_desc=Damage: %.1f
+#idealland.skill.shared.range_desc=Radius: %.1f block
+#idealland.skill.shared.duration_desc=Duration: %.1fs
+#idealland.skill.shared.error_desc=Error: +-%d
+#idealland.skill.shared.level_desc=Level: %d/%d
+#idealland.skill.shared.name_format=%s
+#idealland.skill.shared.name_format_with_lv=%s Lv.%s %s
+#idealland.skill.shared.lv_max=[MAX]
+#
+#idealland.gua_enhance_list.desc=Earth %s Thunder %s\nWater %s Mountain %s\nLake %s Fire %s\nWind%s Sky%s
+#idealland.gua_not_applicable.desc=-
+#
+#idealland.kill_count.desc=Kills: %d
+#
+#idealland.skill.msg.cool_down=Cooling Down.
 
 #Death
 #examples

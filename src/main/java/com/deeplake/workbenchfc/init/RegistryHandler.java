@@ -1,13 +1,12 @@
 package com.deeplake.workbenchfc.init;
 
-import com.deeplake.workbenchfc.command.CommandDimTeleport;
+import com.deeplake.workbenchfc.blocks.ModBlocks;
+import com.deeplake.workbenchfc.command.CommandDisp;
 import com.deeplake.workbenchfc.command.CommandSetValue;
 import com.deeplake.workbenchfc.enchantments.ModEnchantmentInit;
-import com.deeplake.workbenchfc.entity.RenderHandler;
-import com.deeplake.workbenchfc.blocks.ModBlocks;
 import com.deeplake.workbenchfc.entity.ModEntityInit;
+import com.deeplake.workbenchfc.entity.RenderHandler;
 import com.deeplake.workbenchfc.item.ModItems;
-
 import com.deeplake.workbenchfc.util.IHasModel;
 import com.deeplake.workbenchfc.util.ModSoundHandler;
 import net.minecraft.block.Block;
@@ -22,6 +21,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 @EventBusSubscriber
 public class RegistryHandler {
@@ -84,6 +84,7 @@ public class RegistryHandler {
 	public static void postInitReg()
 	{
 		//WorldType TYPE_ONE = new WorldTypeOne();
+		//OreDictionary.registerOre();
 	}
 
 	public static void initRegistries(FMLInitializationEvent event)
@@ -94,6 +95,6 @@ public class RegistryHandler {
 	public static void serverRegistries(FMLServerStartingEvent event)
     {
         event.registerServerCommand(new CommandSetValue());
-        //event.registerServerCommand(new CommandDimTeleport());
+        event.registerServerCommand(new CommandDisp());
     }
 }

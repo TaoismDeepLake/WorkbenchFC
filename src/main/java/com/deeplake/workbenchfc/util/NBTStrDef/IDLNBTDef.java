@@ -19,6 +19,12 @@ public class IDLNBTDef {
 		"wfc_chest"
 	};
 
+	public static final String[] XP_TAG = new String[]{
+			"wfc_workbench_xp",
+			"wfc_furnace_xp",
+			"wfc_chest_xp"
+	};
+
 	//UNO
 	public static final String CARD_SUIT = "card_suit";
 

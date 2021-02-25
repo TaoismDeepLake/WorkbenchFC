@@ -9,6 +9,7 @@ public class CommonDef {
 
     public static final int TICK_PER_SECOND = 20;
 
+    public static final int N_NONE = -1;
     public static final int N_WORKBENCH = 0;
     public static final int N_FURNACE = 1;
     public static final int N_CHEST = 2;
