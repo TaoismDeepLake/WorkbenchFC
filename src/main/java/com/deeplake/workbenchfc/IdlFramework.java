@@ -30,7 +30,7 @@ import static com.deeplake.workbenchfc.init.RegistryHandler.initRegistries;
 public class IdlFramework {
     public static final String MODID = "workbenchfc";
     public static final String NAME = "Workbench, Furnace & Chests";
-    public static final String VERSION = "0.1.001";
+    public static final String VERSION = "0.2.001";
 
     public static Logger logger;
 

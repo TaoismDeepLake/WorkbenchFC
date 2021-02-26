@@ -48,14 +48,23 @@ workbenchfc.msg.exp.2=Chest Exp: Lv.%s (%s/%s)
 item.edible_coal.name=Edible Coal
 item.edible_coal.desc=Fuel or food
 
-item.xp_card_0.name=Edible Workbench XP
-item.xp_card_0.desc=Increases your skill XP
+item.xp_card_0.name=Edible Workbench XP (R)
+item.xp_card_0.desc=Increases your skill XP by 100
 
-item.xp_card_1.name=Edible Furnace XP
-item.xp_card_1.desc=Increases your skill XP
+item.xp_card_1.name=Edible Furnace XP (R)
+item.xp_card_1.desc=Increases your skill XP by 100
 
-item.xp_card_2.name=Edible Chest XP
-item.xp_card_2.desc=Increases your skill XP
+item.xp_card_2.name=Edible Chest XP (R)
+item.xp_card_2.desc=Increases your skill XP by 100
+
+item.xp_card_3.name=Edible Workbench XP
+item.xp_card_3.desc=Increases your skill XP by 25
+
+item.xp_card_4.name=Edible Furnace XP
+item.xp_card_4.desc=Increases your skill XP by 25
+
+item.xp_card_5.name=Edible Chest XP
+item.xp_card_5.desc=Increases your skill XP by 25
 #
 #item.xie_geta.name=Geta of Mr.Xie
 #item.xie_geta.desc.0=Uphill mode. Grants Lv.%s Jump Boost.

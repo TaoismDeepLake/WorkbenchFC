@@ -1,6 +1,7 @@
 package com.deeplake.workbenchfc.design;
 
 import com.deeplake.workbenchfc.IdlFramework;
+import com.deeplake.workbenchfc.item.ModItems;
 import com.deeplake.workbenchfc.util.CommonDef;
 import com.deeplake.workbenchfc.util.CommonFunctions;
 import com.deeplake.workbenchfc.util.MessageDef;
@@ -18,8 +19,7 @@ import net.minecraft.util.text.TextFormatting;
 
 import java.util.UUID;
 
-import static com.deeplake.workbenchfc.util.CommonDef.MAX_LEVEL;
-import static com.deeplake.workbenchfc.util.CommonDef.N_NONE;
+import static com.deeplake.workbenchfc.util.CommonDef.*;
 
 public class ElemAttrManager {
     static UUID CHEST_BUFF_UUID = UUID.fromString("4c85682d-3e57-49cf-9f8e-a5965b55ff64");
@@ -208,6 +208,36 @@ public class ElemAttrManager {
         } else
         {
             return N_NONE;
+        }
+    }
+
+    public static ItemStack getStackFromType(int type)
+    {
+        switch (type)
+        {
+            case N_WORKBENCH:
+                return new ItemStack(Blocks.CRAFTING_TABLE);
+            case N_FURNACE:
+                return new ItemStack(Blocks.FURNACE);
+            case N_CHEST:
+                return new ItemStack(Blocks.CHEST);
+            default:
+                return ItemStack.EMPTY;
+        }
+    }
+
+    public static ItemStack getSmallXPStackFromType(int type)
+    {
+        switch (type)
+        {
+            case N_WORKBENCH:
+                return new ItemStack(ModItems.XP_CARD[3]);
+            case N_FURNACE:
+                return new ItemStack(ModItems.XP_CARD[4]);
+            case N_CHEST:
+                return new ItemStack(ModItems.XP_CARD[5]);
+            default:
+                return ItemStack.EMPTY;
         }
     }
 

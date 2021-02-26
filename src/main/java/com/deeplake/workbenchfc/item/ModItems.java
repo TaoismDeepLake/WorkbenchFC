@@ -19,6 +19,9 @@ public class ModItems {
 					new ItemFoodExp("xp_card_0", 0, 100),
 					new ItemFoodExp("xp_card_1", 1, 100),
 					new ItemFoodExp("xp_card_2", 2, 100),
+					new ItemFoodExp("xp_card_3", 0, 25),
+					new ItemFoodExp("xp_card_4", 1, 25),
+					new ItemFoodExp("xp_card_5", 2, 25),
 			};
 
 

@@ -14,6 +14,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -54,6 +55,24 @@ public class ModEventsShared {
     }
 
     @SubscribeEvent
+    public static void onDrop(LivingDropsEvent evt)
+    {
+        World world = evt.getEntity().getEntityWorld();
+        EntityLivingBase hurtOne = evt.getEntityLiving();
+
+        if (evt.isCanceled() || world.isRemote) {
+            return;
+        }
+
+        int typeHurt = ElemAttrManager.getElemTypeFromStack(hurtOne.getItemStackFromSlot(EntityEquipmentSlot.HEAD));
+        if (hurtOne.getRNG().nextFloat() < 0.5f)
+        {
+            hurtOne.entityDropItem(ElemAttrManager.getSmallXPStackFromType(typeHurt), 1f);
+        }
+    }
+
+
+    @SubscribeEvent
     public static void onCreatureHurt(LivingHurtEvent evt) {
         World world = evt.getEntity().getEntityWorld();
         EntityLivingBase hurtOne = evt.getEntityLiving();
@@ -69,7 +88,7 @@ public class ModEventsShared {
         if (trueSource instanceof EntityPlayer && typeHurt != N_NONE) {
             int levelAtk = IDLNBTUtil.GetElemAuto(trueSource, typeHurt);
             float factor = 1 + 0.075f * levelAtk;
-            evt.setAmount(factor * factor);
+            evt.setAmount(evt.getAmount() * factor);
         }
     }
 }
