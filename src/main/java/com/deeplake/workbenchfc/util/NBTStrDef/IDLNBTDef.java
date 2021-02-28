@@ -94,7 +94,7 @@ public class IDLNBTDef {
 	public static final String MODE = "mode";
 
 	public static final String STARTER_KIT_VERSION_TAG = "starter_mark" + IdlFramework.MODID;
-    public static final int CUR_STARTER_KIT_VERSION = 1;
+    public static final int CUR_STARTER_KIT_VERSION = 2;
 
 	//edict
 	public static final String EDICT_START = ".on_start";

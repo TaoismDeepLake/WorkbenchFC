@@ -10,7 +10,6 @@ import com.deeplake.workbenchfc.keys.KeyboardManager;
 import com.deeplake.workbenchfc.meta.MetaUtil;
 import com.deeplake.workbenchfc.network.NetworkHandler;
 import com.deeplake.workbenchfc.proxy.ProxyBase;
-import com.deeplake.workbenchfc.util.CommonDef;
 import com.deeplake.workbenchfc.util.Reference;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -30,7 +29,7 @@ import static com.deeplake.workbenchfc.init.RegistryHandler.initRegistries;
 public class IdlFramework {
     public static final String MODID = "workbenchfc";
     public static final String NAME = "Workbench, Furnace & Chests";
-    public static final String VERSION = "0.2.001";
+    public static final String VERSION = "0.2.011";
 
     public static Logger logger;
 

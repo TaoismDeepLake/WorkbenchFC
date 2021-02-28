@@ -8,21 +8,16 @@ import com.deeplake.workbenchfc.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.ILockableContainer;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.ILootContainer;
-import net.minecraftforge.event.entity.player.PlayerContainerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 import static com.deeplake.workbenchfc.util.CommonDef.N_CHEST;
-import static com.deeplake.workbenchfc.util.CommonDef.N_WORKBENCH;
 import static com.deeplake.workbenchfc.util.MessageDef.CHEST_NEED_HEALTH;
 
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
@@ -43,6 +38,25 @@ public class ModEventsChest {
         if (block instanceof BlockChest)
         {
             int level = IDLNBTUtil.GetElemAuto(player, N_CHEST);
+
+            BlockChest blockChest = (BlockChest) block;
+            ILockableContainer container = blockChest.getContainer(world, pos, false);
+            if (container != null)//successfully opened
+            {
+                //first time to open
+                if (container instanceof ILootContainer && ((ILootContainer)container).getLootTable() != null)
+                {
+                    CommonFunctions.SafeSendMsgToPlayer(TextFormatting.GREEN, player, MessageDef.OPENED_A_CHEST);
+                    if (level > 0)
+                    {
+                        player.heal(level);
+                        player.addExperience(level);
+                    }
+                    IDLNBTUtil.AddXPAuto(player, N_CHEST, 20);
+                }
+            }
+
+
             if (level < 0)
             {
                 if (player.getMaxHealth() == 0)
@@ -58,20 +72,6 @@ public class ModEventsChest {
                     CommonFunctions.SafeSendMsgToPlayer(TextFormatting.RED, player, CHEST_NEED_HEALTH, level * 10);
                     event.setCanceled(true);
                     return;
-                }
-            }
-            else {
-                BlockChest blockChest = (BlockChest) block;
-                ILockableContainer container = blockChest.getContainer(world, pos, false);
-                if (container != null)//successfully opened
-                {
-                    //first time to open
-                    if (container instanceof ILootContainer && ((ILootContainer)container).getLootTable() != null)
-                    {
-                        CommonFunctions.SafeSendMsgToPlayer(TextFormatting.GREEN, player, MessageDef.OPENED_A_CHEST);
-                        player.heal(level);
-                        IDLNBTUtil.AddXPAuto(player, N_CHEST, 20);
-                    }
                 }
             }
         }

@@ -24,6 +24,9 @@ workbenchfc.msg.level_up.2=Chest Level Up! Lv.%s
 workbenchfc.msg.exp.0=Workbench Exp: Lv.%s (%s/%s)
 workbenchfc.msg.exp.1=Furnace Exp: Lv.%s (%s/%s)
 workbenchfc.msg.exp.2=Chest Exp: Lv.%s (%s/%s)
+
+workbenchfc.msg.chest_need_more_health=Need Health: %s%%
+
 #Potions
 #workbenchfc.potion.deadly=Deadly
 

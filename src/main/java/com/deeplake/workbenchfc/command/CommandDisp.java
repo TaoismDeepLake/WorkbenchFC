@@ -15,7 +15,7 @@ import java.util.List;
 
 public class CommandDisp extends CommandBase {
 
-    private final List<String> aliases = Lists.newArrayList(IdlFramework.MODID, "wfcl", "wfclist");
+    private final List<String> aliases = Lists.newArrayList(IdlFramework.MODID, "wfc", "wfcl", "wfclist");
 
     @SubscribeEvent
     public int getRequiredPermissionLevel()

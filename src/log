@@ -3,3 +3,12 @@ Basic concepts.
 Workbench(Crafting Table): better crafting results as strong and vice versa
 Furnace:Induce fire, more fire resistant and vice versa
 Chest:Starts with 4 chests and (not working) +100% max HP
+
+0.2.001
+-每个技能
+
+0.2.011
+-加入了新玩家随机的初始等级。
+随机的规则为：随机一个元素为强项，技能等级为1~5；随机另一个元素为弱项，等级为-10~-1；三个元素等级加起来为0，也就是非强非弱元素的等级根据另两个决定
+-修复负等级玩家开箱子不加经验的bug。等级为正的玩家开箱子额外获得玩家经验。
+-修复了开箱子失败时消息没有内容的问题

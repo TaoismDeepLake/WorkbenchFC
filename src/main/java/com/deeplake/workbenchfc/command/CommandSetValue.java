@@ -22,7 +22,7 @@ import java.util.List;
 
 public class CommandSetValue extends CommandBase {
 
-    private final List<String> aliases = Lists.newArrayList(IdlFramework.MODID, "wfc", "wfcval");
+    private final List<String> aliases = Lists.newArrayList(IdlFramework.MODID, "wfcs", "wfcset");
 
     @SubscribeEvent
     public int getRequiredPermissionLevel()
@@ -32,12 +32,12 @@ public class CommandSetValue extends CommandBase {
 
     @Override
     public String getName() {
-        return "wfcstrong";
+        return "wfcset";
     }
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "wfcstrong <id 0 ~2> <value -10 ~ + 10>";
+        return "wfcset <id 0 ~2> <value -10 ~ + 10>";
     }
 
     @Override
